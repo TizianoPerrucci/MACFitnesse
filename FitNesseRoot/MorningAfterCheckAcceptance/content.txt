@@ -1,0 +1,9 @@
+!contents -R1 -g -h -f -h
+
+!define TEST_SYSTEM {slim}
+!define SLIM_PORT {9000}
+!define COMMAND_PATTERN {java -Xmx1024m -Xms200m -cp %p %m -v}
+#!define COMMAND_PATTERN {java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=1044 -cp %p %m}
+!define CM_SYSTEM {fitnesse.wiki.cmSystems.GitCmSystem}
+
+!pomFile ./pom.xml

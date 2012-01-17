@@ -1,0 +1,8 @@
+!c !1 Welcome to [[FitNesse][FitNesse.FitNesse]]!
+!c !2 ''The fully integrated stand-alone acceptance testing framework and wiki.''
+
+!c !2 [[Morning After Check Acceptance Tests][MorningAfterCheckAcceptance]]
+
+!c Here you have some useful links: [[!-UserGuide-!][FitNesse.UserGuide]] , [[!-Markup-!][FitNesse.UserGuide.MarkupLanguageReference]].
+
+!note Release v20111026

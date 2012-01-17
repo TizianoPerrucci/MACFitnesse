@@ -1,0 +1,8 @@
+This is FitNesse (an acceptance testing framework and wiki) for testing the Morning After Check application.
+
+
+Start:
+$ ./start_fitnesse.sh
+  let you use the web interface to run the tests and it's accessible at http://localhost:8000
+  (then follow the wiki pages...)
+

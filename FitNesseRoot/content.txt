@@ -1,0 +1,6 @@
+!c !1 Welcome to [[FitNesse][FitNesse.FitNesse]]!
+!c !2 ''The fully integrated stand-alone acceptance testing framework and wiki.''
+
+!c !3 Here you have useful links: [[!-UserGuide-!][FitNesse.UserGuide]] , [[!-Markup-!][FitNesse.UserGuide.MarkupLanguageReference]].
+
+!note Release v20111026
