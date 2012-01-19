@@ -4,14 +4,16 @@ object DrinkingHabits extends Enumeration {
   type DrinkingHabit = Value
   val heavy = Value(1)
   val anonymous = Value(2)
-  val dutch = Value(3)
+  val social = Value(3)
   val easy = Value(4)
 }
 
 object BodyWeights extends Enumeration {
   type BodyWeight = Value
   val heavy = Value(1)
-  val bigBoned = Value(2)
+  //TODO change
+  //val bigBoned = Value(2)
+  val big = Value(2)
   val average = Value(3)
   val slim = Value(4)
 }
@@ -38,10 +40,24 @@ import nl.mac.model.AlcoholicPercentages._
 import nl.mac.model.Moderations._
 
 
+object BodyReactions extends Enumeration {
+  type BodyReaction = Value
+  val slow = Value(1)
+  val ready = Value(2)
+  val quick = Value(3)
+  val fast = Value(4)
+}
+
+import nl.mac.model.BodyReactions._
+
+
 sealed trait DomainElement
+
+case class ExpectedReaction(state: DrinkingState, reaction: BodyReaction) extends DomainElement
+
 
 case class DrinkingState(persona: Persona, drink: Drink) extends DomainElement
 
 case class Persona(habits: DrinkingHabit, weight: BodyWeight) extends DomainElement
 
-case class Drink(percentage: AlcoholicPercentage, moderation: Moderation) extends DomainElement
+case class Drink(moderation: Moderation, percentage: AlcoholicPercentage) extends DomainElement
