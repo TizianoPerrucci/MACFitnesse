@@ -14,10 +14,11 @@ object Querier {
     val p = AlcoholicPercentages.withName(state.drink.percentage.toString).id
     val m = Moderations.withName(state.drink.moderation.toString).id
 
-    request(baseUrl + "%s/%s/%s/%s" format (h, w, p, m))
+    doRequest(baseUrl + "%s/%s/%s/%s" format (h, w, p, m))
   }
 
-  def request(url: String): String = {
-    restTemplate.getForObject(url, classOf[String]);
+  def doRequest(url: String): String = {
+    val response = restTemplate.getForObject(url, classOf[String]);
+    response.substring(response.indexOf(':') + 1).trim
   }
 }
