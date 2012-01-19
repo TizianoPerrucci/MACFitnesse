@@ -10,10 +10,10 @@ object DrinkingHabits extends Enumeration {
 
 object BodyWeights extends Enumeration {
   type BodyWeight = Value
-  val slim = Value(1)
-  val average = Value(2)
-  val bigBoned = Value(3)
-  val heavy = Value(4)
+  val heavy = Value(1)
+  val bigBoned = Value(2)
+  val average = Value(3)
+  val slim = Value(4)
 }
 
 object AlcoholicPercentages extends Enumeration {
