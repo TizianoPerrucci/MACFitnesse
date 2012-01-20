@@ -1,5 +1,7 @@
 package nl.mac.model
 
+//Problem Domain
+
 object DrinkingHabits extends Enumeration {
   type DrinkingHabit = Value
   val heavy = Value(1)
@@ -11,9 +13,7 @@ object DrinkingHabits extends Enumeration {
 object BodyWeights extends Enumeration {
   type BodyWeight = Value
   val heavy = Value(1)
-  //TODO change
-  //val bigBoned = Value(2)
-  val big = Value(2)
+  val bigBoned = Value(2)
   val average = Value(3)
   val slim = Value(4)
 }
@@ -40,6 +40,8 @@ import nl.mac.model.AlcoholicPercentages._
 import nl.mac.model.Moderations._
 
 
+//Solution Domain
+
 object BodyReactions extends Enumeration {
   type BodyReaction = Value
   val slow = Value(1)
@@ -51,13 +53,16 @@ object BodyReactions extends Enumeration {
 import nl.mac.model.BodyReactions._
 
 
-sealed trait DomainElement
-
-case class ExpectedReaction(state: DrinkingState, reaction: BodyReaction) extends DomainElement
+sealed trait DomainObject
 
 
-case class DrinkingState(persona: Persona, drink: Drink) extends DomainElement
+//This represents the mapping between problem domain and solution domain
+//the abstraction is thought in terms of the solution domain
+case class MorningAfterReaction(state: DrinkingState, reaction: BodyReaction) extends DomainObject
 
-case class Persona(habits: DrinkingHabit, weight: BodyWeight) extends DomainElement
 
-case class Drink(moderation: Moderation, percentage: AlcoholicPercentage) extends DomainElement
+case class DrinkingState(persona: Persona, drink: Drink) extends DomainObject
+
+case class Persona(habits: DrinkingHabit, weight: BodyWeight) extends DomainObject
+
+case class Drink(moderation: Moderation, percentage: AlcoholicPercentage) extends DomainObject
