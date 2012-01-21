@@ -2,11 +2,14 @@ package nl.mac.fixture
 
 import org.springframework.web.client.RestTemplate
 import nl.mac.model._
+import org.apache.log4j.Logger
 
 
 object Querier {
   val baseUrl = "http://localhost:8080/reaction/"
-  val restTemplate = new RestTemplate()
+
+  private val restTemplate = new RestTemplate()
+  private val log: Logger = Logger.getLogger(classOf[MACExpectation])
 
   def query(state: DrinkingState): String = {
     val h = DrinkingHabits.withName(state.persona.habits.toString).id
@@ -17,8 +20,9 @@ object Querier {
     doRequest(baseUrl + "%s/%s/%s/%s" format (h, w, p, m))
   }
 
-  def doRequest(url: String): String = {
+  private def doRequest(url: String): String = {
     val response = restTemplate.getForObject(url, classOf[String]);
+    log.info("The application said: [%s]" format  response.trim)
     response.substring(response.indexOf(':') + 1).trim
   }
 }

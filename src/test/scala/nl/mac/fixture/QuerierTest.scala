@@ -7,7 +7,7 @@ class QuerierTest extends SpecificationWithJUnit {
 
   "i shouldn't be drunk" in {
     val state = DrinkingState(Persona(DrinkingHabits.heavy, BodyWeights.heavy), Drink(Moderations.few, AlcoholicPercentages.beerLow))
-    val response: Double = query(state).toDouble
+    val response: Double = Querier.query(state).toDouble
 
     response must be greaterThanOrEqualTo 4
     response must be lessThan 10
@@ -15,7 +15,7 @@ class QuerierTest extends SpecificationWithJUnit {
 
   "i should be drunk" in {
     val state = DrinkingState(Persona(DrinkingHabits.easy, BodyWeights.slim), Drink(Moderations.many, AlcoholicPercentages.spiritHigh))
-    val response: Double = query(state).toDouble
+    val response: Double = Querier.query(state).toDouble
 
     response must be greaterThan 10
   }

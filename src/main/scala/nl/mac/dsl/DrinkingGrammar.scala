@@ -53,12 +53,12 @@ class DrinkingGrammar extends JavaTokenParsers with PackratParsers {
     case "as slow as molasses in January" => BodyReactions.slow;
     case "ready steady" => BodyReactions.ready;
     case "quick and dirty" => BodyReactions.quick;
-    case "grease lightning!" => BodyReactions.fast;
+    case "grease lightning" => BodyReactions.fast;
   }
 
 
   def notValidExpression(exp: String): String = {
-    "Expression '" + exp + "' IS NOT VALID! (talk with your tester ;))"
+    "Expression '" + exp + "' IS NOT VALID: talk with your tester! ;)"
   }
 
 

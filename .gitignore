@@ -1,3 +1,6 @@
 *.idea*
 *.iml
 target
+FitNesseRoot/ErrorLogs
+FitNesseRoot/RecentChanges
+FitNesseRoot/files/testResults

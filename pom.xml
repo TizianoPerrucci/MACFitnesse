@@ -48,6 +48,8 @@
         <groupId>org.scala-tools</groupId>
         <artifactId>maven-scala-plugin</artifactId>
         <version>2.15.2</version>
+
+        <!--TODO target dir-->
 <!--
         <configuration>
           <outputDir>target/scala-${scala.version}</outputDir>
@@ -107,6 +109,7 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.8.2</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.scala-tools.testing</groupId>

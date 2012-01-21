@@ -44,10 +44,10 @@ import nl.mac.model.Moderations._
 
 object BodyReactions extends Enumeration {
   type BodyReaction = Value
-  val slow = Value(1)
-  val ready = Value(2)
-  val quick = Value(3)
-  val fast = Value(4)
+  val fast = Value(1)
+  val quick = Value(2)
+  val ready = Value(3)
+  val slow = Value(4)
 }
 
 import nl.mac.model.BodyReactions._
