@@ -6,7 +6,7 @@ import org.apache.log4j.Logger
 
 
 object Querier {
-  val baseUrl = "http://localhost:8080/reaction/"
+  val baseUrl = "http://morning-after-check.herokuapp.com/reaction/"
 
   private val restTemplate = new RestTemplate()
   private val log: Logger = Logger.getLogger(classOf[MACExpectation])
