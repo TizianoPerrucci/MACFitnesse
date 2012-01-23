@@ -34,10 +34,18 @@ object Moderations extends Enumeration {
   val countless = Value(3)
 }
 
+object Times extends Enumeration {
+  type Time = Value
+  val evening = Value(1)
+  val afternoon = Value(2)
+  val morning = Value(3)
+}
+
 import nl.mac.model.DrinkingHabits._
 import nl.mac.model.BodyWeights._
 import nl.mac.model.AlcoholicPercentages._
 import nl.mac.model.Moderations._
+import nl.mac.model.Times._
 
 
 //Solution Domain
@@ -66,3 +74,6 @@ case class DrinkingState(persona: Persona, drink: Drink) extends DomainObject
 case class Persona(habits: DrinkingHabit, weight: BodyWeight) extends DomainObject
 
 case class Drink(moderation: Moderation, percentage: AlcoholicPercentage) extends DomainObject
+
+//TODO when time is used
+//case class Drink(moderation: Moderation, percentage: AlcoholicPercentage, time: Time) extends DomainObject

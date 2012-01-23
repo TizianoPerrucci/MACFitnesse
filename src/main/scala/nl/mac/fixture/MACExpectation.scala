@@ -35,17 +35,17 @@ class MACExpectation() {
       case p.Success(morningAfterReaction, _) =>
         log.info("Domain object: " + morningAfterReaction.toString)
 
-        val expectedReation = morningAfterReaction.reaction
-        val answerReaction = call(morningAfterReaction)
+        val expectedReaction = morningAfterReaction.reaction
+        val answeredReaction = call(morningAfterReaction)
 
         val result = new java.util.ArrayList[java.util.List[String]]()
 
         content.zipWithIndex.foreach {
           case (line, index) =>
             if (index != content.size - 1) result.append(pass)
-            else if (answerReaction.equals(morningAfterReaction)) result.append(pass)
+            else if (answeredReaction.equals(expectedReaction)) result.append(pass)
             else {
-              result.append(fail(line.head + "<br/><br/>Expected expression: '%s', instead of: '%s'" format(answerReaction, expectedReation)))
+              result.append(fail(line.head + "<br/><br/>Expected expression: '%s', instead of: '%s'" format(answeredReaction, expectedReaction)))
             }
         }
 
@@ -67,8 +67,7 @@ class MACExpectation() {
   }
 
   def call(macReaction: MorningAfterReaction): BodyReaction = {
-    //TODO move result transformation to application
-    BodyReactions.apply((Querier.query(macReaction.state).toDouble / 4).toInt)
+    BodyReactions.apply(Querier.query(macReaction.state))
   }
 
 }
