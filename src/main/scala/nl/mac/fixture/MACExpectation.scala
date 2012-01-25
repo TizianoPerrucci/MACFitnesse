@@ -4,26 +4,13 @@ import org.apache.log4j.Logger
 import nl.mac.dsl.DrinkingGrammar
 import nl.mac.model.BodyReactions._
 import nl.mac.model.{BodyReactions, MorningAfterReaction}
+import scala.collection.JavaConversions._
 
 class MACExpectation() {
   val log: Logger = Logger.getLogger(classOf[MACExpectation])
 
   def doTable(content: java.util.List[java.util.List[String]]): java.util.List[java.util.List[String]] = {
-    import scala.collection.JavaConversions._
-
-    val sb = new StringBuilder()
-
-    var first = true
-    val iterator: Iterator[java.util.List[String]] = content.iterator()
-    while (iterator.hasNext) {
-      if (!first) {
-        val row: java.util.List[String] = iterator.next()
-        sb.append(row.toArray.toList.mkString).append("\n")
-      }
-      first = false
-    }
-
-    val sentence = sb.toString()
+    val sentence = content.map(_.toList.mkString + "\n").mkString
 
     def empty = java.util.Arrays.asList("")
     def pass = java.util.Arrays.asList("pass")

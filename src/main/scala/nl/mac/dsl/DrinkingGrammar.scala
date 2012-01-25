@@ -1,16 +1,14 @@
 package nl.mac.dsl
 
-import scala.util.parsing.combinator.{PackratParsers, JavaTokenParsers}
-
-
 import nl.mac.model.DrinkingHabits._
 import nl.mac.model.AlcoholicPercentages._
 import nl.mac.model.Moderations._
 import nl.mac.model.BodyReactions._
 import nl.mac.model._
 import nl.mac.model.BodyWeights._
+import scala.util.parsing.combinator.{RegexParsers, PackratParsers}
 
-class DrinkingGrammar extends JavaTokenParsers with PackratParsers {
+class DrinkingGrammar extends RegexParsers with PackratParsers {
 
   lazy val morningAfterReaction: PackratParser[MorningAfterReaction] = state ~ reaction ^^ {case s ~ r => MorningAfterReaction(s, r)}
 
@@ -20,7 +18,7 @@ class DrinkingGrammar extends JavaTokenParsers with PackratParsers {
 
   lazy val persona: PackratParser[Persona] = habit ~ weight ^^ {case h ~ w => Persona(h, w)}
 
-  lazy val habit: PackratParser[DrinkingHabit] = "I'm" ~> "a" ~> wordLiteral <~ "drinker" ^^ {case h => DrinkingHabits.withName(h)}
+  lazy val habit: PackratParser[DrinkingHabit] = ("I'm" | "I" ~> "am") ~> "a" ~> wordLiteral <~ "drinker" ^^ {case h => DrinkingHabits.withName(h)}
 
   lazy val weight: PackratParser[BodyWeight] = "with" ~> "a" ~> wordsLiteral ^?(weightExpression, notValidExpression)
 
@@ -58,7 +56,7 @@ class DrinkingGrammar extends JavaTokenParsers with PackratParsers {
 
 
   def notValidExpression(exp: String): String = {
-    "Expression '" + exp + "' IS NOT VALID: talk with your tester! ;)"
+    " '" + exp + "' expression IS NOT VALID"
   }
 
 
