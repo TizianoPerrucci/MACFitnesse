@@ -22,11 +22,7 @@ object Querier {
     val w = BodyWeights.withName(state.persona.weight.toString).id
     val p = AlcoholicPercentages.withName(state.drink.percentage.toString).id
     val m = Moderations.withName(state.drink.moderation.toString).id
-
     val t = 0
-
-    //TODO when time is used
-    //val t = Times.withName(state.drink.time.toString).id
 
     val params = new LinkedMultiValueMap[String, String]();
     params.add("h", h)
