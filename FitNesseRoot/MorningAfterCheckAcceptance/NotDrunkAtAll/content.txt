@@ -1,4 +1,4 @@
-|table: MAC Expectation                        |
-|I'm a heavy drinker with a big boned bodyframe|
-|when I drink a few amount of beers            |
-|my reaction is expected to be grease lightning|
+|table: MAC Expectation                           |
+|I'm a heavy drinker with a big boned bodyframe   |
+|when I drink a few amount of beers in the evening|
+|my reaction is expected to be grease lightning   |

@@ -9,12 +9,13 @@ class DrinkingGrammarTest extends SpecificationWithJUnit {
     val sentence =
       """
       I'm a easy drinker with a slim bodyframe
-      when I drink a countless amount of high spirits
+      when I drink a countless amount of high spirits in the morning
       my reaction is expected to be as slow as molasses in January
       """
 
     val expectedModel = MorningAfterReaction(
-      DrinkingState(Persona(DrinkingHabits.easy, BodyWeights.slim),Drink(Moderations.countless, AlcoholicPercentages.spiritHigh)),
+      DrinkingState(Persona(DrinkingHabits.easy, BodyWeights.slim),
+        Drink(Moderations.countless, AlcoholicPercentages.spiritHigh, Times.morning)),
       BodyReactions.slow
     )
 

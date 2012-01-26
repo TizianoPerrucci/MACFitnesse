@@ -6,7 +6,8 @@ import nl.mac.model._
 class QuerierTest extends SpecificationWithJUnit {
 
   "i shouldn't be drunk" in {
-    val state = DrinkingState(Persona(DrinkingHabits.heavy, BodyWeights.heavy), Drink(Moderations.few, AlcoholicPercentages.beerLow))
+    val state = DrinkingState(Persona(DrinkingHabits.heavy, BodyWeights.heavy),
+      Drink(Moderations.few, AlcoholicPercentages.beerLow, Times.evening))
     val response = Querier.query(state)
 
     response must be greaterThanOrEqualTo 1
@@ -14,7 +15,8 @@ class QuerierTest extends SpecificationWithJUnit {
   }
 
   "i should be drunk" in {
-    val state = DrinkingState(Persona(DrinkingHabits.easy, BodyWeights.slim), Drink(Moderations.many, AlcoholicPercentages.spiritHigh))
+    val state = DrinkingState(Persona(DrinkingHabits.easy, BodyWeights.slim),
+      Drink(Moderations.many, AlcoholicPercentages.spiritHigh, Times.morning))
     val response: Double = Querier.query(state).toDouble
 
     response must be greaterThan 2
