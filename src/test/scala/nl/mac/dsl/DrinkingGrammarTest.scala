@@ -29,11 +29,35 @@ class DrinkingGrammarTest extends SpecificationWithJUnit {
     }
   }
 
+  "time should be optional (and evening will be used as default value)" in {
+    val sentence =
+      """
+      I'm a easy drinker with a slim bodyframe
+      when I drink a countless amount of high spirits
+      my reaction is expected to be as slow as molasses in January
+      """
+
+    val expectedModel = MorningAfterReaction(
+      DrinkingState(Persona(DrinkingHabits.easy, BodyWeights.slim),
+        Drink(Moderations.countless, AlcoholicPercentages.spiritHigh, Times.evening)),
+      BodyReactions.slow
+    )
+
+    val p = new DrinkingGrammar
+    p.parseAll(p.morningAfterReaction, sentence) match {
+      case p.Success(morningAfterReaction, _) =>
+        println(morningAfterReaction.toString)
+        morningAfterReaction mustEqual expectedModel
+
+      case x => fail(x.toString)
+    }
+  }
+
   "shouldn't be a valid sentence" in {
     val sentence =
       """
       I'm a social drinker with a big boned bodyframe
-      when I drink a countless amount of high spirits
+      when I drink a countless amount of high spirits in the evening
       my reaction is expected to be cool
       """
 
