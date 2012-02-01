@@ -1,8 +1,23 @@
 This is FitNesse (an acceptance testing framework and wiki) for testing the Morning After Check application.
 
+You can find the MAC application here https://github.com/TizianoPerrucci/MorningAfterCheck , after all is a simple Scalatra application that implements the simple functional
+requirements used for a DSL exercise.
 
-Start:
+The presentation related to this sample app can be found here http://prezi.com/fuxyebx_nazm/external-dsl-with-parser-combinators/ .
+
+Moreover there is an additional branch (time) that show the DSL grammar extended to accept optionally the time information.
+
+
+Start FitNesse:
 $ ./start_fitnesse.sh
-  let you use the web interface to run the tests and it's accessible at http://localhost:8000
-  (then follow the wiki pages...)
+  (it will be accessible at http://localhost:8000)
 
+Compile:
+$ mvn compile
+or
+$ sbt compile
+
+Continuos compilation and testing:
+$ sbt
+sbt> ~ compile
+sbt> ~ test
